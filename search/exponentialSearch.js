@@ -7,18 +7,16 @@
 // 3 - Perform a binary search within the identified range.
 
 function exponentialSearch(array, target) {
-    let n = array.length;
-
     if (array[0] == target) {
         return 0;
     }
 
-    let i = 1;
-    while (i < n && array[i] <= target) {
-        i = i * 2;
+    let index = 1;
+    while (index < array.length && array[index] <= target) {
+        index = index * 2;
     }
 
-    return binarySearch(array, target, i / 2, Math.min(i, n - 1));
+    return binarySearch(array, target, index / 2, Math.min(index, array.length - 1));
 }
 
 function binarySearch(array, target, left, right) {
